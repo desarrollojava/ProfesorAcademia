@@ -22,7 +22,7 @@ public class TestSpring {
     private static Log logger = LogFactory.getLog(TestSpring.class);
 
     @Autowired
-    @Qualifier("profesor")
+    @Qualifier("idProfesor")
     private IInstructor profesorMatematica;
 
    /* @Autowired
