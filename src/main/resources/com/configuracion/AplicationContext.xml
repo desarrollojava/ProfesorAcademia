@@ -15,12 +15,18 @@ http://www.springframework.org/schema/aop/spring-aop.xsd"
    
     <aop:config>
         <aop:aspect id = "myAspect" ref="estudiante">
-            <!--<aop:pointcut expression="execution(* com.implementaciones..*.*(..))" id="clases"/>-->
-            <aop:pointcut expression="execution(public * com.implementaciones..*.*(String,..))" id="clases"/>
+            <aop:pointcut expression="execution(* com.implementaciones..*.*(..))" id="clases"/>
+            
+            <aop:before pointcut-ref="clases" method="sentarse"/>
+            <aop:before pointcut-ref="clases" method="apagarCelulares"/>
+            
+            <aop:after-returning  pointcut-ref="clases" method="realizarPreguntas"/>
+            <aop:after-throwing  pointcut-ref="clases" method="salirDelAula"/>
+
+            <!--<aop:pointcut expression="execution(public * com.implementaciones..*.*(String,..))" id="clases"/>-->
 
             <!--<aop:pointcut expression="execution(public * com.implementaciones..*.*(..))" id="clases"/>-->
             <!-- <aop:pointcut expression="execution(* com.implementaciones.Profesor.ejecutar(..))" id="clases"/>-->
-            <aop:around pointcut-ref="clases" method="monitorearClasesMatematica" />
         </aop:aspect> 
     </aop:config>
 </beans>

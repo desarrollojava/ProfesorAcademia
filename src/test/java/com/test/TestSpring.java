@@ -1,4 +1,5 @@
 package com.test;
+
 import com.implementaciones.DepDisciplina;
 import com.implementaciones.Investigador;
 import com.implementaciones.Profesor;
@@ -21,20 +22,20 @@ public class TestSpring {
     private static Log logger = LogFactory.getLog(TestSpring.class);
 
     @Autowired
-    @Qualifier("idProfesor")
+    @Qualifier("profesor")
     private IInstructor profesorMatematica;
-    
-    @Autowired
+
+   /* @Autowired
     @Qualifier("idProfesorMatematicaFisica")
     private IInstructor profesorMatematicaFisica;
-    
+
     @Autowired
     @Qualifier("idInvestigador")
     private IInstructor investigador;
-    
-    @Autowired
-    @Qualifier("idDepDisciplina")
-    private IConsejoInvestigacion depDisciplina;
+*/
+   // @Autowired
+   // @Qualifier("depDisciplina")
+   // private IConsejoInvestigacion depDisciplina;
 
 //    @Before
 //    public void before() {
@@ -44,32 +45,28 @@ public class TestSpring {
 //        miembroDepInvestigacion = (IInstructor) ctx.getBean("idBeanMiembroDepInvestigacion");
 //        miembroDepDisciplina = (IInstructor) ctx.getBean("idBeanMiembroDepDisciplina");
 //    }
-
     @Test
     public void testProfesor() {
-    //    logger.info("Inicio de enseñar matematica");
+        logger.info("Inicio de enseñar matematica");
         int asignaturas = 3;
-     //   profesorMatematica.ejecutar();
-     //   assertEquals(asignaturas, ((Profesor) profesorMatematica).getNumAsignaturas());
-     //   logger.info("Fin de enseñar");
+        profesorMatematica.ejecutar();
+        //assertEquals(asignaturas, ((Profesor) profesorMatematica).getNumAsignaturas());
+        logger.info("Fin de enseñar");
 
-      //  logger.info("Inicio de enseñar matematica y fisica");
-     //   asignaturas = 3;
-     //   profesorMatematicaFisica.ejecutar();
-     //   assertEquals(asignaturas, ((Profesor) profesorMatematicaFisica).getNumAsignaturas());
-      //  logger.info("Fin de enseñar matematica y fisica");
-
-       // logger.info("Inicio de toma desiciones en el dep Investigacion");
-      //  String desicionAdministrativa = "Asignar profesores";
-      //  investigador.ejecutar();
-     //   assertEquals(desicionAdministrativa, ((Investigador) investigador).getDesicionAdministrativa());
-      //  logger.info("Fin de toma desiciones en el dep Investigacion");
-
-        logger.info("Inicio de toma desiciones en el dep Disciplina");
-        String desicionAdministrativa = "Sancionar profesores";
-        depDisciplina.tomarDesicionesAdministrativas();
+        // logger.info("Inicio de enseñar matematica y fisica");
+        // asignaturas = 3;
+        //  profesorMatematicaFisica.ejecutar();
+        //  assertEquals(asignaturas, ((Profesor) profesorMatematicaFisica).getNumAsignaturas());
+        //   logger.info("Fin de enseñar matematica y fisica");
+        // logger.info("Inicio de toma desiciones en el dep Investigacion");
+        //  String desicionAdministrativa = "Asignar profesores";
+        //  investigador.ejecutar();
+        //   assertEquals(desicionAdministrativa, ((Investigador) investigador).getDesicionAdministrativa());
+        //  logger.info("Fin de toma desiciones en el dep Investigacion");
+        //  logger.info("Inicio de toma desiciones en el dep Disciplina");
+        //   String desicionAdministrativa = "Sancionar profesores";
+        //  depDisciplina.tomarDesicionesAdministrativas();
         //assertEquals(desicionAdministrativa, ((DepDisciplina) depDisciplina).tomarDesicionesAdministrativas());
-        logger.info("Fin de toma desiciones en el dep Disciplina");
-
+        //  logger.info("Fin de toma desiciones en el dep Disciplina");
     }
 }

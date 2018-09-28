@@ -9,7 +9,8 @@ import com.exception.EjecucionException;
 import com.interfaces.IConsejoInvestigacion;
 import org.springframework.stereotype.Component;
 
-@Component("idDepDisciplina")
+//@Component("idDepDisciplina")
+@Component
 public class DepDisciplina implements IConsejoInvestigacion{
 
     @Override
