@@ -11,6 +11,16 @@ http://www.springframework.org/schema/context/spring-context.xsd
 http://www.springframework.org/schema/aop 
 http://www.springframework.org/schema/aop/spring-aop.xsd" 
 > 
-   <context:component-scan base-package="com.implementaciones"/>
-    
+    <context:component-scan base-package="com.implementaciones"/>
+   
+    <aop:config>
+        <aop:aspect id = "myAspect" ref="estudiante">
+            <!--<aop:pointcut expression="execution(* com.implementaciones..*.*(..))" id="clases"/>-->
+            <aop:pointcut expression="execution(public * com.implementaciones..*.*(String,..))" id="clases"/>
+
+            <!--<aop:pointcut expression="execution(public * com.implementaciones..*.*(..))" id="clases"/>-->
+            <!-- <aop:pointcut expression="execution(* com.implementaciones.Profesor.ejecutar(..))" id="clases"/>-->
+            <aop:around pointcut-ref="clases" method="monitorearClasesMatematica" />
+        </aop:aspect> 
+    </aop:config>
 </beans>
