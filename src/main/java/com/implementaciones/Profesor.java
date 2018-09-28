@@ -9,8 +9,7 @@ import com.exception.EjecucionException;
 import com.interfaces.IInstructor;
 import org.springframework.stereotype.Component;
 
-//@Component("idProfesor")
-@Component
+@Component("idProfesor")
 public class Profesor implements IInstructor {
 
     private int numAsignaturas = 3;
@@ -33,8 +32,8 @@ public class Profesor implements IInstructor {
     @Override
     public void ejecutar() throws EjecucionException {
         System.out.println("enseño " + numAsignaturas + " de los temas de matematica");
-        int res,a=3,b=0;
-        res=a/b;
+       // int res,a=3,b=0;
+      //  res=a/b;
         
     }
 

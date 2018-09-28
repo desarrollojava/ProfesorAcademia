@@ -1,9 +1,13 @@
 package com.implementaciones;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 @Component
+@Aspect
 public class Estudiante {
 
     public void sentarse() {
@@ -21,7 +25,13 @@ public class Estudiante {
     public void salirDelAula() {
         System.out.println("las clases se han concluido, salir del aula");
     }
+       
 
+    @Pointcut("execution(* com.implementaciones.Profesor.ejecutar(..))")
+    public void ejecutarImpartirClases() {
+    }//funciona como una "marca"
+
+    @Around("ejecutarImpartirClases()")
     public void monitorearClasesMatematica(ProceedingJoinPoint joinjPoint) {
         try {
             System.out.println("las clases estan por comenzar, por favor tomar asiento");
