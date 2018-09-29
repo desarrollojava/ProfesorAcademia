@@ -25,13 +25,11 @@ public class Estudiante {
     public void salirDelAula() {
         System.out.println("las clases se han concluido, salir del aula");
     }
-       
-
-    @Pointcut("execution(* com.implementaciones.Profesor.ejecutar(..))")
-    public void ejecutarImpartirClases() {
-    }//funciona como una "marca"
-
-    @Around("ejecutarImpartirClases()")
+    
+    @Pointcut ("execution(* com.implementaciones.Profesor.ejecutar(..))")
+    public void impartirClases(){}
+    
+    @Around("impartirClases()")
     public void monitorearClasesMatematica(ProceedingJoinPoint joinjPoint) {
         try {
             System.out.println("las clases estan por comenzar, por favor tomar asiento");
